@@ -23,7 +23,7 @@ module.exports = function(app, db) {
 
        const collection = app.post('/habits', (req, res) => {
       const habit = { habit_name: req.body.habit_name, reason: req.body.reason, days: req.body.days, progress: req.body.progress}
-      db.collection('habits').insert(habit, (err, result) => {
+      db.collection('habits').insertOne(habit, (err, result) => {
         if (err) {
           res.send({ 'error' : "An error has occurred"})
         }

@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-MongoClient.connect(db.url, (err,client)=>{
+MongoClient.connect(db.url,  { useNewUrlParser: true }, (err,client)=>{
     
     var db = client.db('habits');
 
